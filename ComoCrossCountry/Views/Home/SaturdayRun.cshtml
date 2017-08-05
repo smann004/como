@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Summer Schedule";
+}
+<script>
+function matchColHeights(col1, col2) {
+    var col1Height = $(col1).height();
+    //console.log(col1Height);
+    var col2Height = $(col2).height();
+    //console.log(col2Height);
+    if (col1Height < col2Height) {
+        $(col1).height(col2Height);
+    } else {
+        $(col2).height(col1Height);
+    }
+}
+</script>
+@*http://stackoverflow.com/questions/8595657/matching-div-heights-with-jquery
+http://stackoverflow.com/questions/5923470/razor-rendersection-within-script-tags-how-to-insert-script-from-view-into-tem
+http://jsfiddle.net/kaAjW/  -css
+*@
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+           // alert('test');
+        });    
+
+        $(document).ready(function() {
+        matchColHeights('#wrap', '#content');
+    });
+    </script>
+}
+
+<div id="content">
+<body bgcolor="#ffffff">
+<h1><center> MDRA COMO PARK CROSS
+       COUNTRY RELAYS </center></h1>
+
+<h2><center> 2 person teams </center></h2>
+<h2><center> Every Wednesday in August </center></h2>
+<img src="~/img/mdra_relays.jpg" />
+
+
+<h4>Join the Fun:</h4>
+        This series of races (which began in 1974) are a great way to get in 
+        shape and improve your fitness.  All level of runners are encouraged
+        to compete and have fun.  High School runners are eligible every week.
+If you do not have a partner, just show up
+        early and we will find you one.  Help make the 2016 relays the biggest
+        and best ever!
+
+
+<h4>Location:</h4>
+        At the intersection of Horton Ave. and Lexington Pkwy in St. Paul
+        From HWY 36 go south on Lexington till Horton Ave. From HWY 94 
+        go north on Lexington till Horton Ave.
+
+<h4>Races:</h4>
+    <ul>
+        <li>         6:30 P.M. kids race 1/4 or 1/2 mile every week
+              <li>         6:45 P.M. 2 person relay
+                  <ul> 
+                      <li>         8/2/2017  8 x 1 1k
+                      <li>         8/9/2017 6 x 1 mile
+                      <li>         8/16/2017 10 x 1k
+                      <li>         8/30/2017 8 x 1 mile
+                      </li></ul></li>
+    </ul>
+
+<h4>Entry Fee:</h4>
+        $.50 for kids (14 &amp; under)<br>
+        $2 per runner (17 &amp; under)<br>
+        $5 per runner (18 &amp; over)
+
+<h4>Registration:</h4>
+No preregistration; just show up in time to register at the race.<p>
+High School runners are eligible every week.
+
+          
+<h4>Awards:</h4>
+        Ribbons to all finishers<p>
+        Championship week is August 30,2017
+
+<h4>Results:</h4>
+        Can be viewed at http://raceberryjam.com/mainrr.html#Augustup 
+<h4>Race Director</h4> - John Cramer<br>
+              PH# (651)489-2252<br>
+breadmanrunner@yahoo.com 
+
+
+                               <p>
+                                 Visit  http://www.andersonraces.com/new-events/2017/8/30/mdra-como-park-relays for more information
+                               </p></body>
+</div>

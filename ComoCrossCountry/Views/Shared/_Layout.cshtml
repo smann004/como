@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Park Cross Country</title>    
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />   
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+     @RenderSection("scripts", required: false)
+</head>
+
+<body>
+    <div class="container">
+        <div id="wrap">
+            <div id="header">
+                <br />
+                <h3>www.comoparkcrosscountry.com</h3>
+                <p>
+                    <strong>success=ability x preparation x effort x will</strong><br />
+                </p>
+            </div>
+
+            <img src="~/img/ComoParknewlogo_wide.png" width="1140" height="228" alt="" />
+
+            <div id="avmenu">
+                <h2 class="hide">Menu:</h2>
+                <ul>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Schedule", "Schedule", "Home")</li>
+                    <li>@Html.ActionLink("Calendar", "Calendar", "Home")</li>
+                    <li>@Html.ActionLink("Results", "Results", "Home")</li>
+                    <li>@Html.ActionLink("Archive Results", "ArchiveResults", "Home")</li>
+                    <li>@Html.ActionLink("Coaches", "Coaches", "Home")</li>
+                    <li>@Html.ActionLink("Summer Schedule", "SaturdayRun", "Home")</li>
+                </ul>
+                <div class="announce">
+                    <h3>What's new  ?</h3>
+                    <p>
+                        <strong>@*DateTime.Now*@Aug. 2, 2017</strong><br />
+                        Schedule posted<br />
+                    </p>
+                    @*<img src="../img/como_xc_logo.jpg" height="100" width="125" class="left" />*@
+                    @*<p class="textright">@Html.ActionLink("More Info...", "Results", "Home")</p>*@
+                </div>
+            </div>
+            <div id="extras">
+                <h3>&nbsp;<br />
+                    More Info:
+                </h3>
+                <p>‘When you run on the earth and with the earth, you can run forever.’ –Raramuri Proverb</p>
+
+                <h3>Links:</h3>
+                <p>
+                    <a href="http://sports.spps.org/school/comopark/hs/2013-2014">St.Paul public schools sports</a><br />
+                    <a href="http://comosr.spps.org/">Como High School</a>
+                    @* <img src="~/img/arrow.gif" alt="arrow" width="7" height="7" /> <a href="#">Link 1</a><br />
+                    <img src="~/img/arrow.gif" alt="arrow" width="7" height="7" />  <a href="#">Link 2</a><br />
+                    <img src="~/img/arrow.gif" alt="arrow" width="7" height="7" />  <a href="#">Link 3</a><br />*@
+                </p>
+
+                <p class="small">
+                    @*Dezign<br />(4 Janv, 2007)<br />
+                    <a href="http://validator.w3.org/check/referer">Validate XHTML 1.0 Strict</a><br /> and Css*@
+                </p>
+            </div>
+            @RenderBody()
+
+        </div>
+    </div>
+    <div class="container">
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - ComoParkCC app.</p>
+        </footer>
+    </div>   
+</body>
+</html>

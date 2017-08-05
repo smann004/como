@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ComoCrossCountry.Meet>
+@{
+    ViewBag.Title = "Archive Results";
+}
+<script>
+    function matchColHeights(col1, col2) {
+        var col1Height = $(col1).height();
+        //console.log(col1Height);
+        var col2Height = $(col2).height();
+        //console.log(col2Height);
+        if (col1Height < col2Height) {
+            $(col1).height(col2Height);
+        } else {
+            $(col2).height(col1Height);
+        }
+    }
+</script>
+@*http://stackoverflow.com/questions/8595657/matching-div-heights-with-jquery
+http://stackoverflow.com/questions/5923470/razor-rendersection-within-script-tags-how-to-insert-script-from-view-into-tem
+http://jsfiddle.net/kaAjW/  -css
+*@
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            // alert('test');
+        });
+
+        $(document).ready(function () {
+            matchColHeights('#wrap', '#content');
+        });
+    </script>
+}
+<div id="content">
+    <h2>Results</h2>
+@*    <div id="sectionHeader">
+        Alumni Meet 2013
+    </div>
+    <a href="~/Content/AlumniMeet2Mile8_14_13.xls">Alumni Meet</a>
+    <div id="sectionHeader">
+        2013 St Paul Central Open
+    </div>
+    <a href="~/Content/2013_St_Paul_Central_Open.htm" target="_blank">2013 St Paul Central
+        Open</a>*@
+
+    
+    @foreach (var item in Model.OrderBy(c=>c.Date))
+    {
+        if (item.Date < DateTime.Parse("2016-01-01"))
+        {
+        <div id="sectionHeader">@Html.DisplayFor(modelItem => item.Name) . @Html.DisplayFor(modelItem => item.Location) . @item.Date.Value.ToShortDateString() </div>
+            foreach (var race in item.Races)
+            {        
+        @Html.ActionLink(race.Description, "ResultDetail", new { raceID = race.Id }, new { target = "_blank" })<br />
+            }
+@* <a href="~/Content/_2013_dakotavgirls.html" target="_blank">Varsity Girls</a>
+    <br />
+    <a href="~/Content/_2013_dakotavboys.html" target="_blank">Varsity Boys</a>
+    <br />
+    <a href="~/Content/_2013_dakotajvgirls.html" target="_blank">JV Girls</a>
+    <br />
+    <a href="~/Content/_2013_dakotajvboys.html" target="_blank">JV Boys</a>*@
+        }
+    }
+</div>

@@ -1,0 +1,88 @@
+﻿@using System.Collections.Generic;
+@model IEnumerable<ComoCrossCountry.Meet>
+@{
+    ViewBag.Title = "Schedule";   
+}
+<script>
+    function matchColHeights(col1, col2) {
+        var col1Height = $(col1).height();
+        //console.log(col1Height);
+        var col2Height = $(col2).height();
+        //console.log(col2Height);
+        if (col1Height < col2Height) {
+            $(col1).height(col2Height);
+        } else {
+            $(col2).height(col1Height);
+        }
+    }
+   
+</script>
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            // alert('test');
+        });
+
+        $(document).ready(function () {
+            matchColHeights('#wrap', '#content');
+        });
+    </script>
+}
+<div id="content">    
+   <table width=100%>
+<tr><th style="text-align:left">Date</th><th>Event</th><th>Meet</th><th>Course Map</th><th>Info.</th><th>More Info.</th></tr>
+@*<tr><td>8/13/2014</td><td>Alumni Meet</td><td></td><td></td></tr>
+<tr><td>8/22/2014</td><td>Central Open</td><td></td><td></td></tr>
+<tr><td>8/23/2013</td><td><a href="~/Content/CentralOpenInformationSheet2013.pdf" Target="_blank">Central Open</td><td>St. Kate's</td><td><a href="~/Content/4kCourse.pdf" Target="_blank">4K <a href="~/Content/5kCourse.pdf" Target="_blank">5K</td></tr>
+<tr><td>8/29/2014</td><td>Dakota County Classic</td><td></td><td></td></tr>
+<tr><td>9/11/2014</td><td>Rum River Invitational</td><td>Anoka</td><td></td></tr>*@
+
+      @{IEnumerable<ComoCrossCountry.Meet> sortedModel = Model.OrderBy(t => t.Date);}
+
+    @foreach (var item in sortedModel)
+{
+    if (item.Date > DateTime.Parse("2017-08-01"))
+    {
+        
+            String mapLink = item.Map ?? string.Empty ;
+            if (!string.IsNullOrWhiteSpace(mapLink)&&(mapLink.IndexOf("http") == -1))
+            {
+                mapLink = "~/Content/" + mapLink;
+
+            }
+            
+        <tr><td>@if (item.Date != null)
+                {
+                    @item.Date.Value.ToShortDateString()
+                }
+            </td>
+           
+            <td>@item.Name</td><td>@item.Location</td><td>@if(!string.IsNullOrWhiteSpace(mapLink)){<a href='@Url.Content(mapLink)' Target="_blank">Map</a>}</td>
+            <td>@if(item.Doc1 != null) {<a href="~/Content/@Url.Content(item.Doc1)" Target="_blank">Map2/Info.</a>}</td>
+            <td>@if(item.Doc2 != null) {<a href="~/Content/@Url.Content(item.Doc2)" Target="_blank">Info.</a>}</td>
+        </tr>       
+    
+    }
+}
+       
+       </table>
+</div>
+
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+
+ 
+
+ 
+
+ 
+
+ 

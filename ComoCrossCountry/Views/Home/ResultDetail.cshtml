@@ -1,0 +1,29 @@
+﻿@model ComoCrossCountry.Race
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ResultDetail</title>
+</head>
+<body>
+    @if (Model.FormattedResults.Contains("pdf") || Model.FormattedResults.Contains("xlsx"))
+    {
+        Server.TransferRequest("~/Content/" + Model.FormattedResults);
+    }
+    else
+    {
+        <div>
+        <pre>
+        @Html.Raw(Model.FormattedResults)
+        </pre>
+        </div>
+    }
+
+</body>
+</html>

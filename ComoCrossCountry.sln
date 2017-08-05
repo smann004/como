@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComoCrossCountry", "ComoCrossCountry\ComoCrossCountry.csproj", "{F1B6F7D9-8F30-4D69-9041-D0E49AC3E59B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComoCrossCountry.Tests", "ComoCrossCountry.Tests\ComoCrossCountry.Tests.csproj", "{007BE688-C473-48C3-97DF-6B3310F21D1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1B6F7D9-8F30-4D69-9041-D0E49AC3E59B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B6F7D9-8F30-4D69-9041-D0E49AC3E59B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B6F7D9-8F30-4D69-9041-D0E49AC3E59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B6F7D9-8F30-4D69-9041-D0E49AC3E59B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{007BE688-C473-48C3-97DF-6B3310F21D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{007BE688-C473-48C3-97DF-6B3310F21D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{007BE688-C473-48C3-97DF-6B3310F21D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{007BE688-C473-48C3-97DF-6B3310F21D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

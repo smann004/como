@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="comoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="comoModelStoreContainer">
+          <EntitySet Name="Meet" EntityType="comoModel.Store.Meet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Race" EntityType="comoModel.Store.Race" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK_Race_Race" Association="comoModel.Store.FK_Race_Race">
+            <End Role="Meet" EntitySet="Meet" />
+            <End Role="Race" EntitySet="Race" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Meet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="smalldatetime" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormattedResults" Type="nvarchar(max)" />
+          <Property Name="Map" Type="nvarchar(max)" />
+          <Property Name="Doc1" Type="nvarchar(max)" />
+          <Property Name="Doc2" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Race">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormattedResults" Type="nvarchar(max)" />
+          <Property Name="MeetId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Race_Race">
+          <End Role="Meet" Type="comoModel.Store.Meet" Multiplicity="0..1" />
+          <End Role="Race" Type="comoModel.Store.Race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meet">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Race">
+              <PropertyRef Name="MeetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="comoModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="comoEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="Meets" EntityType="comoModel.Meet" />
+          <EntitySet Name="Races" EntityType="comoModel.Race" />
+          <AssociationSet Name="FK_Race_Race" Association="comoModel.FK_Race_Race">
+            <End Role="Meet" EntitySet="Meets" />
+            <End Role="Race" EntitySet="Races" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Meet">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Location" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FormattedResults" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Races" Relationship="comoModel.FK_Race_Race" FromRole="Meet" ToRole="Race" />
+          <Property Type="String" Name="Map" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Doc1" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Doc2" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Race">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FormattedResults" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MeetId" Type="Int32" />
+          <NavigationProperty Name="Meet" Relationship="comoModel.FK_Race_Race" FromRole="Race" ToRole="Meet" />
+        </EntityType>
+        <Association Name="FK_Race_Race">
+          <End Role="Meet" Type="comoModel.Meet" Multiplicity="0..1" />
+          <End Role="Race" Type="comoModel.Race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meet">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Race">
+              <PropertyRef Name="MeetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="comoModelStoreContainer" CdmEntityContainer="comoEntities">
+          <EntitySetMapping Name="Meets"><EntityTypeMapping TypeName="comoModel.Meet"><MappingFragment StoreEntitySet="Meet">
+            <ScalarProperty Name="Doc2" ColumnName="Doc2" />
+                <ScalarProperty Name="Doc1" ColumnName="Doc1" />
+                <ScalarProperty Name="Map" ColumnName="Map" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Location" ColumnName="Location" />
+            <ScalarProperty Name="FormattedResults" ColumnName="FormattedResults" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Races"><EntityTypeMapping TypeName="comoModel.Race"><MappingFragment StoreEntitySet="Race">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="FormattedResults" ColumnName="FormattedResults" />
+            <ScalarProperty Name="MeetId" ColumnName="MeetId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CC_Data">
+        <EntityTypeShape EntityType="comoModel.Meet" Width="1.5" PointX="0.75" PointY="0.875" Height="2.1725878906250005" IsExpanded="true" />
+        <EntityTypeShape EntityType="comoModel.Race" Width="1.5" PointX="3" PointY="1" Height="1.9802864583333335" IsExpanded="true" />
+        <AssociationConnector Association="comoModel.FK_Race_Race" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.9901432291666668" />
+          <ConnectorPoint PointX="3" PointY="1.9901432291666668" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

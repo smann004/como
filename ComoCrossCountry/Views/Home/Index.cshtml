@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home Page";  
+}
+<script>
+    function matchColHeights(col1, col2) {
+        var col1Height = $(col1).height();
+        //console.log(col1Height);
+        var col2Height = $(col2).height();
+        //console.log(col2Height);
+        if (col1Height < col2Height) {
+            $(col1).height(col2Height);
+        } else {
+            $(col2).height(col1Height);
+        }
+    }
+</script>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            // alert('test');
+        });
+
+        $(document).ready(function () {
+            matchColHeights('#wrap', '#content');
+        });
+    </script>
+}
+<div id="content">
+    &nbsp;<h2 style="text-align:center">Welcome to the como park cross country team website! </h2>
+    
+    <p>@*"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut*@ </p>
+    
+     <div style="position:relative; margin:auto; text-align:center">
+         <h4>What: Alumni fun run </h4>
+         <h4>When: August 16, 5:00pm</h4>
+         <h4>Where: Horton Park</h4>
+         <h4>Who: alumni, team, parents</h4>
+        Hope to see you there!
+         </div>     
+  <div style="position:relative; margin:auto; text-align:center">
+      @*<img src="~/Content/teampic_2015.JPG" />*@
+     
+  </div>
+    <p>@* ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationvelit es <a href="#">studio-plume.org</a>, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation velit es*@</p>
+   
+</div>
