@@ -279,6 +279,10 @@
     <Content Include="Content\Washington2016Boys5K.pdf" />
     <Content Include="Content\Washington2016Girls5K.pdf" />
     <Content Include="Content\Rum2017.pdf" />
+    <Content Include="Content\StKates5kCourseMap.pdf" />
+    <Content Include="Content\StKates4kCourseMap.pdf" />
+    <Content Include="Content\IrishInviteMap.pdf" />
+    <Content Include="Content\irish_race_info.pdf" />
     <None Include="img\Thumbs.db" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
