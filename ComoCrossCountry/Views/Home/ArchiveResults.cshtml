@@ -45,7 +45,7 @@ http://jsfiddle.net/kaAjW/  -css
     
     @foreach (var item in Model.OrderBy(c=>c.Date))
     {
-        if (item.Date < DateTime.Parse("2016-01-01"))
+        if (item.Date < DateTime.Parse("2017-01-01"))
         {
         <div id="sectionHeader">@Html.DisplayFor(modelItem => item.Name) . @Html.DisplayFor(modelItem => item.Location) . @item.Date.Value.ToShortDateString() </div>
             foreach (var race in item.Races)

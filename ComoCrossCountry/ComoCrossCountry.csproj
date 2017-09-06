@@ -283,6 +283,8 @@
     <Content Include="Content\StKates4kCourseMap.pdf" />
     <Content Include="Content\IrishInviteMap.pdf" />
     <Content Include="Content\irish_race_info.pdf" />
+    <Content Include="Content\TCChallenge.pdf" />
+    <Content Include="Content\TCChallengemap.pdf" />
     <None Include="img\Thumbs.db" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />

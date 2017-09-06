@@ -73,15 +73,11 @@ namespace ComoCrossCountry.Controllers
              //             .First();
 
              return View();
-
-
          }
 
          public ActionResult Results()
          {
              ViewBag.Message = "Results Page";
-
-
             
              return View(db.Meets.ToList());
              //return View();
@@ -93,6 +89,13 @@ namespace ComoCrossCountry.Controllers
              ComoCrossCountry.Race race = (from r in db.Races where r.Id == raceID select r).FirstOrDefault();
              return View(race);
              //return View();
+         }
+
+         public ActionResult ArchiveResults()
+         {
+             ViewBag.Message = "Results Page";
+
+             return View(db.Meets.ToList());
          }
     }
 }
