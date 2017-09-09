@@ -43,7 +43,7 @@ http://jsfiddle.net/kaAjW/  -css
         Open</a>*@
 
     
-    @foreach (var item in Model.OrderBy(c=>c.Date))
+    @foreach (var item in Model.OrderByDescending(c=>c.Date))
     {
         if (item.Date < DateTime.Parse("2017-01-01"))
         {
