@@ -162,6 +162,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\2018Irish.png" />
     <Content Include="Content\innocent_griak_2016.JPG" />
     <Content Include="Content\stpconf2016BoysJV5K.html" />
     <Content Include="Content\stpconf2016BoysV5K.html" />
@@ -197,6 +198,7 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="google3eb88b78cb9f8339.html" />
     <Content Include="img\arrow.gif" />
     <Content Include="img\body_deg.gif" />
     <Content Include="img\ComoParknewlogo.png" />
@@ -285,6 +287,19 @@
     <Content Include="Content\irish_race_info.pdf" />
     <Content Include="Content\TCChallenge.pdf" />
     <Content Include="Content\TCChallengemap.pdf" />
+    <Content Include="Content\GriakHS2017.pdf" />
+    <Content Include="Content\2017BMResults.pdf" />
+    <Content Include="Content\2017GMResults.pdf" />
+    <Content Include="Content\MSHSL4AA_5000Map.pdf" />
+    <Content Include="Content\pike_map2017.pdf" />
+    <Content Include="Content\WashingtonInvitational2017.pdf" />
+    <Content Include="Content\2017Section4AAs.pdf" />
+    <Content Include="Content\2017stp_confChampionship.pdf" />
+    <Content Include="Content\20174AAChampionships.pdf" />
+    <Content Include="Content\2018CentralOpen.pdf" />
+    <Content Include="Content\2018Griak.pdf" />
+    <Content Include="Content\2018Transportation.pdf" />
+    <Content Include="Content\2018Irish_invitational.pdf" />
     <None Include="img\Thumbs.db" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
@@ -302,6 +317,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Home\ArchiveResults.cshtml" />
+    <Content Include="Views\Home\Transportation.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
