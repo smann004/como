@@ -163,6 +163,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\2018Irish.png" />
+    <Content Include="Content\2018_4aa.jpg" />
+    <Content Include="Content\2018_washington_inv.jpg" />
     <Content Include="Content\innocent_griak_2016.JPG" />
     <Content Include="Content\stpconf2016BoysJV5K.html" />
     <Content Include="Content\stpconf2016BoysV5K.html" />
@@ -277,7 +279,6 @@
     <Content Include="Content\girls_varsity_results.pdf" />
     <Content Include="Content\TCCrossCountryChallenge.pdf" />
     <Content Include="Content\Blaine2015Map.pdf" />
-    <Content Include="Content\section4aachamp.pdf" />
     <Content Include="Content\Washington2016Boys5K.pdf" />
     <Content Include="Content\Washington2016Girls5K.pdf" />
     <Content Include="Content\Rum2017.pdf" />
@@ -300,6 +301,13 @@
     <Content Include="Content\2018Griak.pdf" />
     <Content Include="Content\2018Transportation.pdf" />
     <Content Include="Content\2018Irish_invitational.pdf" />
+    <Content Include="Content\2018RumRiverInvite.pdf" />
+    <Content Include="Content\2018 Washington Invitational at Pike Island.docx" />
+    <Content Include="Content\2018_Griak_BoysMaroon.pdf" />
+    <Content Include="Content\2018_Griak_GirlsMaroon.pdf" />
+    <Content Include="Content\2018 Washington Invitational at Pike Island.pdf" />
+    <Content Include="Content\2018 St Paul CC Conference Championship.pdf" />
+    <Content Include="Content\2018Section 4AA Cross Country Championships.pdf" />
     <None Include="img\Thumbs.db" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
