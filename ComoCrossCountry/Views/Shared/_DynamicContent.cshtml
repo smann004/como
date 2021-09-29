@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ComoCrossCountry.DynamicContent>
+
+@helper DisplayContent(string sectionName){ 
+
+
+@*string test = Model.Where(f => f.SectionName == sectionName).FirstOrDefault().Content;
+@Html.Raw(test);*@
+}
+
+<div>
+    @DisplayContent("IndexMainContent");
+</div>

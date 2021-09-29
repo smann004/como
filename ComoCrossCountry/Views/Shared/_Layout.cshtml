@@ -3,12 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como Park Cross Country</title>    
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />   
+    <title>Como Park Cross Country</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-     @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148902408-1"></script>
+    <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-148902408-1');
+    </script>
 </head>
 
 <body>
@@ -32,16 +41,16 @@
                     <li>@Html.ActionLink("Calendar", "Calendar", "Home")</li>
                     <li>@Html.ActionLink("Results", "Results", "Home")</li>
                     <li>@Html.ActionLink("Archive Results", "ArchiveResults", "Home")</li>
-                    <li>@Html.ActionLink("Transportation", "Transportation", "Home")</li>
+                    <li>@Html.ActionLink("Photos", "Photos", "Home")</li>
+                    @*<li>@Html.ActionLink("Transportation", "Transportation", "Home")</li>*@
                     <li>@Html.ActionLink("Coaches", "Coaches", "Home")</li>
                     @*<li>@Html.ActionLink("Summer Schedule", "SaturdayRun", "Home")</li>*@
                 </ul>
                 <div class="announce">
                     <h3>What's new  ?</h3>
-                    <p>
-                        <strong>@*DateTime.Now*@Oct 26, 2018</strong><br />
-                        Conf. and Section Results added.<br />
-                        Banquet info. added.<br />
+                    <p>Schedule updated
+                        <strong>@*DateTime.Now*@July 9, 2021</strong><br />
+                        <br />
                     </p>
                     @*<img src="../img/como_xc_logo.jpg" height="100" width="125" class="left" />*@
                     @*<p class="textright">@Html.ActionLink("More Info...", "Results", "Home")</p>*@
@@ -55,8 +64,8 @@
 
                 <h3>Links:</h3>
                 <p>
-                    <a href="http://sports.spps.org/school/comopark/hs/2013-2014">St.Paul public schools sports</a><br />
-                    <a href="http://comosr.spps.org/">Como High School</a>
+                    <a href="https://www.spps.org/domain/173">St.Paul public schools sports</a><br />
+                    <a href="https://www.spps.org/domain/1091">Como High School</a>
                     @* <img src="~/img/arrow.gif" alt="arrow" width="7" height="7" /> <a href="#">Link 1</a><br />
                     <img src="~/img/arrow.gif" alt="arrow" width="7" height="7" />  <a href="#">Link 2</a><br />
                     <img src="~/img/arrow.gif" alt="arrow" width="7" height="7" />  <a href="#">Link 3</a><br />*@

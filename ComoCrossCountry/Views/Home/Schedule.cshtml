@@ -40,17 +40,25 @@
       @{IEnumerable<ComoCrossCountry.Meet> sortedModel = Model.OrderBy(t => t.Date);}
 
     @foreach (var item in sortedModel)
-{
-    if (item.Date > DateTime.Parse("2018-08-01"))
     {
-        
+        //if (item.Date > DateTime.Parse("2018-08-01"))
+        if (item.Date > DateTime.Now.AddMonths(-7))
+        {
+
             String mapLink = item.Map ?? string.Empty ;
             if (!string.IsNullOrWhiteSpace(mapLink)&&(mapLink.IndexOf("http") == -1))
             {
                 mapLink = "~/Content/" + mapLink;
 
             }
-            
+
+            String docLink = item.Doc1 ?? string.Empty;
+            if (!string.IsNullOrWhiteSpace(docLink) && (docLink.IndexOf("http") == -1))
+            {
+                docLink = "~/Content/" + docLink;
+
+            }
+
         <tr><td>@if (item.Date != null)
                 {
                     @item.Date.Value.ToShortDateString()
@@ -58,7 +66,8 @@
             </td>
            
             <td>@item.Name</td><td>@item.Location</td><td>@if(!string.IsNullOrWhiteSpace(mapLink)){<a href='@Url.Content(mapLink)' Target="_blank">Map</a>}</td>
-            <td>@if(item.Doc1 != null) {<a href="~/Content/@Url.Content(item.Doc1)" Target="_blank">Map2/Info.</a>}</td>
+             <td>@if(item.Doc1 != null){<a href='@Url.Content(docLink)' Target="_blank">Map2/Info.</a>}</td>
+            @*<td>@if(item.Doc1 != null) {<a href="~/Content/@Url.Content(item.Doc1)" Target="_blank">Map2/Info.</a>}</td>*@       
             <td>@if(item.Doc2 != null) {<a href="~/Content/@Url.Content(item.Doc2)" Target="_blank">Info.</a>}</td>
         </tr>       
     

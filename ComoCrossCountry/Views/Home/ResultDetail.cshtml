@@ -12,18 +12,24 @@
     <title>ResultDetail</title>
 </head>
 <body>
-    @if (Model.FormattedResults.Contains("pdf") || Model.FormattedResults.Contains("xlsx"))
-    {
-        Server.TransferRequest("~/Content/" + Model.FormattedResults);
-    }
-    else
-    {
-        <div>
-        <pre>
+    @{
+        string docLink = Model.FormattedResults.Substring(0, 4) == "http" ? Model.FormattedResults : string.Empty;
+        if (!string.IsNullOrWhiteSpace(docLink))
+        {
+            Response.Redirect(docLink);
+        }
+        else if (Model.FormattedResults.Contains("pdf") || Model.FormattedResults.Contains("xlsx"))
+        {
+            Server.TransferRequest("~/Content/" + Model.FormattedResults);
+        }
+        else
+        {
+            <div>
+                <pre>
         @Html.Raw(Model.FormattedResults)
         </pre>
-        </div>
+            </div>
+        }
     }
-
 </body>
 </html>

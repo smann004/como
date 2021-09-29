@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ComoCrossCountry</RootNamespace>
     <AssemblyName>ComoCrossCountry</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
@@ -27,6 +27,8 @@
     <IISExpressUseClassicPipelineMode />
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,8 +53,8 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -147,21 +149,50 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="CC_Data.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CC_Data.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CC_Data.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CC_Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="CC_Data.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CC_Data.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Default1Controller.cs" />
+    <Compile Include="Controllers\DynamicContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DynamicContent.cs">
+      <DependentUpon>CC_Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Meet.cs">
+      <DependentUpon>CC_Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Race.cs">
+      <DependentUpon>CC_Data.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CC_Data.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CC_Data.Context.cs</LastGenOutput>
+      <DependentUpon>CC_Data.edmx</DependentUpon>
+    </Content>
+    <Content Include="CC_Data.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CC_Data.cs</LastGenOutput>
+      <DependentUpon>CC_Data.edmx</DependentUpon>
+    </Content>
     <Content Include="Content\2018Irish.png" />
     <Content Include="Content\2018_4aa.jpg" />
     <Content Include="Content\2018_washington_inv.jpg" />
@@ -308,6 +339,15 @@
     <Content Include="Content\2018 Washington Invitational at Pike Island.pdf" />
     <Content Include="Content\2018 St Paul CC Conference Championship.pdf" />
     <Content Include="Content\2018Section 4AA Cross Country Championships.pdf" />
+    <Content Include="Content\2019_St_battlecreek.pdf" />
+    <Content Include="Content\2019MSHSL Section 4AA 5000 meter cross country course.pdf" />
+    <Content Include="Content\9_3_2020 St Croix Bluffs Como vs. Central Boys Results.pdf" />
+    <Content Include="Content\9_3_2020 St Croix Bluffs Como vs. Central Girls Results.pdf" />
+    <Content Include="Content\2020Saint Paul Two Mile- Boys Results.pdf" />
+    <Content Include="Content\2020Saint Paul Two Mile- Girls Results.pdf" />
+    <Content Include="Content\2020Saint Paul Two Mile- JV Boys Results.pdf" />
+    <Content Include="Content\2020Saint Paul Two Mile- JV Girls Results.pdf" />
+    <Content Include="Content\2020Section 4AA Championship %28COVID%29.pdf" />
     <None Include="img\Thumbs.db" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
@@ -326,6 +366,11 @@
     </None>
     <Content Include="Views\Home\ArchiveResults.cshtml" />
     <Content Include="Views\Home\Transportation.cshtml" />
+    <Content Include="Views\Shared\_DynamicContent.cshtml" />
+    <Content Include="Views\Home\Photos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

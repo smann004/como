@@ -58,7 +58,13 @@ namespace ComoCrossCountry.Controllers
              return View();
          }
 
-         public ActionResult Transportation()
+        public ActionResult Photos()
+        {
+            ViewBag.Message = "Photos Page";
+            return View();
+        }
+
+        public ActionResult Transportation()
          {
              ViewBag.Message = "Transportation Page";
              return View();

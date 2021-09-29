@@ -32,33 +32,17 @@ http://jsfiddle.net/kaAjW/  -css
 }
 <div id="content">
     <h2>Results</h2>
-@*    <div id="sectionHeader">
-        Alumni Meet 2013
-    </div>
-    <a href="~/Content/AlumniMeet2Mile8_14_13.xls">Alumni Meet</a>
-    <div id="sectionHeader">
-        2013 St Paul Central Open
-    </div>
-    <a href="~/Content/2013_St_Paul_Central_Open.htm" target="_blank">2013 St Paul Central
-        Open</a>*@
 
-    
-    @foreach (var item in Model.OrderBy(c=>c.Date))
+    @foreach (var item in Model.OrderBy(c => c.Date))
     {
-        if (item.Date > DateTime.Now.AddMonths(-7)  )
+        if (item.Date > DateTime.Now.AddMonths(-7))
         {
-        <div id="sectionHeader">@Html.DisplayFor(modelItem => item.Name) . @Html.DisplayFor(modelItem => item.Location) . @item.Date.Value.ToShortDateString() </div>
+
+            <div id="sectionHeader">@Html.DisplayFor(modelItem => item.Name) . @Html.DisplayFor(modelItem => item.Location) . @item.Date.Value.ToShortDateString() </div>
             foreach (var race in item.Races)
-            {        
-        @Html.ActionLink(race.Description, "ResultDetail", new { raceID = race.Id }, new { target = "_blank" })<br />
-            }
-@* <a href="~/Content/_2013_dakotavgirls.html" target="_blank">Varsity Girls</a>
-    <br />
-    <a href="~/Content/_2013_dakotavboys.html" target="_blank">Varsity Boys</a>
-    <br />
-    <a href="~/Content/_2013_dakotajvgirls.html" target="_blank">JV Girls</a>
-    <br />
-    <a href="~/Content/_2013_dakotajvboys.html" target="_blank">JV Boys</a>*@
+            {       
+                @Html.ActionLink(race.Description, "ResultDetail", new { raceID = race.Id }, new { target = "_blank" })<br />
+            }            
         }
     }
 </div>
