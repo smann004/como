@@ -31,8 +31,7 @@ http://jsfiddle.net/kaAjW/  -css
     </script>
 }
 <div id="content">
-    <h2>Results</h2>
-
+    <h2>Results</h2>    
     @foreach (var item in Model.OrderBy(c => c.Date))
     {
         if (item.Date > DateTime.Now.AddMonths(-7))
